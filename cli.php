@@ -1,11 +1,11 @@
 <?php
 
 include __DIR__ . "/src/Framework/Database.php";
-require __DIR__ . "/../../vendor/autoload.php";
+require __DIR__ . "/vendor/autoload.php";
 
 use Framework\Database;
 use App\Config\Paths;
-use DOTenv\Dotenv;
+use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(Paths::ROOT);
 $dotenv->load();

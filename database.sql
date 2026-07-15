@@ -32,28 +32,28 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 CREATE TABLE IF NOT EXISTS `transaction` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `description` varchar(255) DEFAULT NULL,
   `amount` decimal(10,0) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY(`user_id`) REFERENCES `users`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 
-CREATE TABLE IF NOT EXISTS receipts(
-  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  original_filename varchar(255) NOT NULL,
-  storage_filename varchar(255) NOT NULL,
-  media_type varchar(255) NOT NULL,
-  transaction_id bigint(20) NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY(transaction_id) REFERENCES transaction (id) ON DELETE CASCADE
-);
+CREATE TABLE IF NOT EXISTS `receipts`(
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `original_filename` varchar(255) NOT NULL,
+  `storage_filename` varchar(255) NOT NULL,
+  `media_type` varchar(255) NOT NULL,
+  `transaction_id` bigint(20) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY(`transaction_id`) REFERENCES `transaction` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
