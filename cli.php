@@ -19,17 +19,50 @@ $db = new Database($_ENV['DB_DRIVER'], [
 try {
     //SQL Injection fix
     #$search = "Hats' OR 1=1 -- ";
-    $search = 'Hats';
+//     $search = 'Hats';
 
     #$query = "SELECT * FROM products";
 
-    $db->query("INSERT INTO products VALUES(null,'Glovers')");
+//    $db->query("INSERT INTO products VALUES(null,'Glovers')");
+//
+//    $query = "SELECT * FROM products WHERE name=:name";
+//
+//    $result = $db->select($query, ['name' => 'Glovers']);
+//
+//    print_r($result);
 
-    $query = "SELECT * FROM products WHERE name=:name";
+    $password = password_hash('secret123', PASSWORD_DEFAULT);
 
-    $result = $db->select($query, ['name' => 'Glovers']);
+    $query = "
+        INSERT INTO users 
+        (
+            email,
+            password,
+            age,
+            country,
+            media
+        )
+        VALUES
+        (
+            :email,
+            :password,
+            :age,
+            :country,
+            :media
+        )
+    ";
 
-    print_r($result);
+    $db->insert($query, [
+        'email' => 'admin@example.com',
+        'password' => $password,
+        'age' => 30,
+        'country' => 'UK',
+        'media' => ''
+    ]);
+
+    echo "User created";
+
+
 } catch (Exception $e) {
     echo $e->getMessage();
 }

@@ -31,3 +31,6 @@
 #####             'samesite' => 'lax'
 #####         ]);
 ##### session_regenerate_id();
+
+### user setup
+#### php cli.php

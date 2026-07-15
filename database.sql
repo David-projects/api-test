@@ -24,9 +24,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_Unique` (`email`),
+  UNIQUE KEY `email_Unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 
 --
 -- Table structure for table `transaction`
@@ -41,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `user_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY(`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY(`user_id`) REFERENCES `users`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
