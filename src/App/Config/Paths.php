@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * This class is for storing paths that will be needed thoughout the framework

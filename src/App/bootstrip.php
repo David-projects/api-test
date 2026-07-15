@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * load and configurer  the files needed to run the application

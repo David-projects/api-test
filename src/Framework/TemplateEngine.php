@@ -1,4 +1,4 @@
-<?
+<?php
 
 declare(strict_types=1);
 
@@ -42,8 +42,7 @@ class TemplateEngine
         ob_start();
         include $this->resolve($template);
 
-        $output = ob_get_clean(); //get output buffer contents
-        ob_end_clean(); //clean and end output buffering
+        $output = ob_get_clean(); //get output buffer contents also clean and end output buffering
 
         return $output;
     }

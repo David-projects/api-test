@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * This class is for adding new routes to the framework

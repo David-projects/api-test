@@ -5,7 +5,7 @@
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `php8-learning`
+-- Database: `api_test`
 --
 
 -- --------------------------------------------------------

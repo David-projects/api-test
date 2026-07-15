@@ -15,7 +15,7 @@ class CsrfTokenMiddleware implements MiddlewareInterface
 
     public function process(callable $next)
     {
-        $_SESSION['token'] = $_SESSION['token'] ?: $this->view->escapeString(bin2hex(random_bytes(44)));
+        $_SESSION['token'] = $_SESSION['token'] ?? $this->view->escapeString(bin2hex(random_bytes(44)));
         $this->view->addGlobal('csrfToken', $_SESSION['token']);
         $next();
     }
