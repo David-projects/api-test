@@ -1,0 +1,34 @@
+<VirtualHost *:80>
+    #ServerAdmin webmaster@dummy-host2.example.com
+    DocumentRoot "C:/xampp/htdocs/mvc/public"
+    ServerName personalSite.local
+    #ErrorLog "logs/personal_site.local.log"
+    #CustomLog "logs/personal_site.local.log" common
+	<Directory "C:/xampp/htdocs/mvc/public">
+		#lets Apache know we are using our own routing
+		RewriteEngine On
+
+        #
+        # AllowOverride controls what directives may be placed in .htaccess files.
+        # It can be "All", "None", or any combination of the keywords:
+        #   AllowOverride FileInfo AuthConfig Limit
+        #
+        AllowOverride None
+		
+		# if a file is requested dirctly we give them that file ie video files etc
+		# flags mean -d vaild Directory -f vaild file name ! checks is they do not exist if not we rewrite
+		RewriteCond %{REQUEST_FILENAME} !-d
+		RewriteCond %{REQUEST_FILENAME} !-f
+		
+		# Route to index.php ^ means catch all [L] means stop apyling rewrite rules
+		RewriteRule ^ /index.php [L]
+	</Directory>
+
+    #
+    # The following lines prevent .htaccess and .htpasswd files from being 
+    # viewed by Web clients. 
+    #
+    <Files ".ht*">
+        Require all denied
+    </Files>
+</VirtualHost>

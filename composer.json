@@ -1,0 +1,22 @@
+{
+    "name": "david/mvc",
+    "description": "A PHP MVC framework",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "_comment\\": "We are using PSR coding standards in this project please ensure you use them https://www.php-fig.org/",
+        "psr-4": {
+            "_comment\\": "if a file is not loading check the below paths are right as you may have added one wrong.",
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        },
+        "files": [
+            "src/App/Config/Middleware.php"
+        ]
+    },
+    "scripts": {
+        "mvc": "php cli.php"
+    }
+}

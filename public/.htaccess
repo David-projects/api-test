@@ -1,0 +1,18 @@
+# We do not use this file, it is here for information use only to say we do not use it.
+# Delete thisd file if you are not going to use it update AllowOverride in httpd or the vhost.conf depending on where it is
+# If you are going to use it update the below to the right setting.
+# NOTE only use if you know what you are doing.
+
+#######################################################################################
+        
+# RewriteEngine On
+
+# # if a file is requested dirctly we give them that file ie video files etc
+# # flags mean -d vaild Directory -f vaild file name ! checks is they do not exist if not we rewrite
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+
+# # Route to index.php ^ means catch all [L] means stop apyling rewrite rules
+# RewriteRule ^ /index.php [L]
+
+#########################################################################################
